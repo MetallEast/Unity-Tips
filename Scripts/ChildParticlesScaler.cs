@@ -11,8 +11,7 @@ public class ChildParticlesScaler : MonoBehaviour
         scale = transform.localScale.x;
         particles.AddRange(Resources.FindObjectsOfTypeAll(typeof(ParticleSystem)) as ParticleSystem[]);
         foreach (ParticleSystem ps in particles)
-            ps.transform.localScale *= scale;
-            
+            ps.transform.localScale *= scale; 
     }
 
     void Update()
