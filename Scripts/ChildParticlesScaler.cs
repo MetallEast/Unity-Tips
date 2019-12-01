@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChildParticlesScaler : MonoBehaviour
+public class AllParticlesScaler : MonoBehaviour
 {
     float scale;
     List<ParticleSystem> particles = new List<ParticleSystem>();
