@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllParticlesScaler : MonoBehaviour
+public class ChildParticlesScaler : MonoBehaviour
 {
     float scale;
     List<ParticleSystem> particles = new List<ParticleSystem>();
 
-    void Awake()
+    void OnEnable()
     {
         scale = transform.localScale.x;
-        particles.AddRange(Resources.FindObjectsOfTypeAll(typeof(ParticleSystem)) as ParticleSystem[]);
+        GetComponentsInChildren(true, particles);
         foreach (ParticleSystem ps in particles)
-            ps.transform.localScale *= scale; 
+            ps.transform.localScale *= scale;
     }
 
     void Update()
@@ -19,6 +19,7 @@ public class AllParticlesScaler : MonoBehaviour
         if (transform.hasChanged)
         {
             float curScale = transform.localScale.x;
+
             foreach (ParticleSystem ps in particles)
                 ps.transform.localScale *= curScale / scale;
             scale = curScale;
