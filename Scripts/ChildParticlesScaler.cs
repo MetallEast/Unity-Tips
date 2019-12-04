@@ -19,7 +19,6 @@ public class ChildParticlesScaler : MonoBehaviour
         if (transform.hasChanged)
         {
             float curScale = transform.localScale.x;
-
             foreach (ParticleSystem ps in particles)
                 ps.transform.localScale *= curScale / scale;
             scale = curScale;
