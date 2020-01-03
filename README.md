@@ -5,3 +5,5 @@
 [ChildLightsScaler.cs](Scripts/ChildLightsScaler.cs) — just like ChildParticlesScaler, but only for Light components.
 
 [GameEvent.cs](Scripts/GameEvent.cs) — event implementation through scriptable object.
+
+[WalkDetector.cs](Scripts/WalkDetector.cs) — determines whether 2 VR Hand Controllers (or pair gameobjects like character hands or legs) move as if walking.
