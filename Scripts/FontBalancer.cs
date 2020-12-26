@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FontBalancer : MonoBehaviour
 {
     [SerializeField] bool isSelfDestroy;
-    [SerializeField] Text[] texts;
+    [SerializeField] UnityEngine.UI.Text[] texts;
 
     IEnumerator Start()
     {
@@ -28,4 +27,34 @@ public class FontBalancer : MonoBehaviour
         if (isSelfDestroy)
             Destroy(this);
     }
+}
+
+// Analogue for TextMeshPro
+public class FontBalancer : MonoBehaviour
+{
+	[SerializeField] bool isSelfDestroy;
+	[SerializeField] TMPro.TMP_Text[] texts;
+
+	IEnumerator Start()
+	{
+		if (texts.Length < 2)
+			yield break;
+		yield return null;
+
+		float minSize = int.MaxValue;
+		foreach (var t in texts)
+		{
+			t.enableAutoSizing = false;
+			if (minSize > t.fontSize)
+				minSize = t.fontSize;
+		}
+
+		foreach (var t in texts)
+		{
+			t.fontSize = minSize;
+		}
+
+		if (isSelfDestroy)
+			Destroy(this);
+	}
 }
