@@ -8,4 +8,4 @@
 
 [WalkDetector.cs](Scripts/WalkDetector.cs) — determines whether 2 VR Hand Controllers (or pair gameobjects like character hands or legs) move as if walking.
 
-[FontBalancer.cs](Scripts/FontBalancer.cs) — set the font size of the text boxes to the same size after completing the best fit setting.
+[FontBalancer.cs](Scripts/FontBalancer.cs) — set the font size of the text or TMP components to the same size after completing the Best_Fit/Auto_Size process.
