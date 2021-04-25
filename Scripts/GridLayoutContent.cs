@@ -7,14 +7,16 @@ public class GridLayoutContent : MonoBehaviour
     [SerializeField] int rows;
     [SerializeField] int cols;
 
-    void Start()
+    IEnumerator Start()
     {
+		yield return new WaitForEndOfFrame();
+		
         RectTransform parentRect = gameObject.GetComponent<RectTransform>();
         GridLayoutGroup gridLayout = gameObject.GetComponent<GridLayoutGroup>();
 
-        float width = parentRect.rect.width / cols;
-        float height = parentRect.rect.height / rows;
-        float size = width < height ? width : height;
+        var width = parentRect.rect.width / cols;
+        var height = parentRect.rect.height / rows;
+        var size = width < height ? width : height;
 
         gridLayout.cellSize = new Vector2(size, size);
     }
