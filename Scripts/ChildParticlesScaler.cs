@@ -4,13 +4,13 @@ using UnityEngine;
 public class ChildParticlesScaler : MonoBehaviour
 {
     float scale;
-    List<ParticleSystem> particles = new List<ParticleSystem>();
+    var particles = new List<ParticleSystem>();
 
     void OnEnable()
     {
         scale = transform.localScale.x;
         GetComponentsInChildren(true, particles);
-        foreach (ParticleSystem ps in particles)
+        foreach (var ps in particles)
             ps.transform.localScale *= scale;
     }
 
@@ -18,8 +18,8 @@ public class ChildParticlesScaler : MonoBehaviour
     {
         if (transform.hasChanged)
         {
-            float curScale = transform.localScale.x;
-            foreach (ParticleSystem ps in particles)
+            var curScale = transform.localScale.x;
+            foreach (var ps in particles)
                 ps.transform.localScale *= curScale / scale;
             scale = curScale;
             transform.hasChanged = false;
