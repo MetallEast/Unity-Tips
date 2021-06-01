@@ -12,7 +12,7 @@ public class FontBalancer : MonoBehaviour
             yield break;
         yield return null;
 
-        int minSize = int.MaxValue;
+        var minSize = int.MaxValue;
         foreach (var t in texts)
         { 
             if (minSize > t.cachedTextGenerator.fontSizeUsedForBestFit)
@@ -41,7 +41,7 @@ public class FontBalancer : MonoBehaviour
 			yield break;
 		yield return null;
 
-		float minSize = int.MaxValue;
+		var minSize = int.MaxValue;
 		foreach (var t in texts)
 		{
 			t.enableAutoSizing = false;
