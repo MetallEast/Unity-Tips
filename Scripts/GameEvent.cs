@@ -9,7 +9,7 @@ public class GameEvent : ScriptableObject
 	[SerializeField] bool debugMode;
 	[SerializeField] string description;
 #endif
-	List<Action> listeners = new List<Action>();
+	var listeners = new List<Action>();
 
 	public void Raise()
 	{
@@ -17,7 +17,7 @@ public class GameEvent : ScriptableObject
 		if (debugMode)
 			Debug.Log(name + " raised. Listeners: " + listeners.Count);
 #endif
-		for (int i = listeners.Count - 1; i >= 0; i--)
+		for (var i = listeners.Count - 1; i >= 0; i--)
 			listeners[i].Invoke();
 	}
 
