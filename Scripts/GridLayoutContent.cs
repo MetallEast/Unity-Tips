@@ -9,7 +9,7 @@ public class GridLayoutContent : MonoBehaviour
 
     IEnumerator Start()
     {
-		yield return new WaitForEndOfFrame();
+	yield return new WaitForEndOfFrame();
 		
         RectTransform parentRect = gameObject.GetComponent<RectTransform>();
         GridLayoutGroup gridLayout = gameObject.GetComponent<GridLayoutGroup>();
