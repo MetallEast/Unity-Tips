@@ -6,13 +6,13 @@ using UnityEngine;
 public class ChildLightsScaler : MonoBehaviour
 {
     float scale;
-    List<Light> lights = new List<Light>();
+    var lights = new List<Light>();
 
     void OnEnable()
     {
         scale = transform.localScale.x;
         GetComponentsInChildren(true, lights);
-        foreach (Light light in lights)
+        foreach (var light in lights)
             light.range *= scale;
     }
 
@@ -20,8 +20,8 @@ public class ChildLightsScaler : MonoBehaviour
     {
         if (transform.hasChanged)
         {
-            float curScale = transform.localScale.x;
-            foreach (Light light in lights)
+            var curScale = transform.localScale.x;
+            foreach (var light in lights)
                 light.range *= curScale / scale;
             scale = curScale;
             transform.hasChanged = false;
